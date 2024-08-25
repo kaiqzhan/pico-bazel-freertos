@@ -19,8 +19,6 @@
     "https://bcr.bazel.build/modules/buildozer/7.1.2/source.json": "c9028a501d2db85793a6996205c8de120944f50a0d570438fcae0457a5f9d1f8",
     "https://bcr.bazel.build/modules/googletest/1.11.0/MODULE.bazel": "3a83f095183f66345ca86aa13c58b59f9f94a2f81999c093d4eeaa2d262d12f4",
     "https://bcr.bazel.build/modules/googletest/1.11.0/source.json": "c73d9ef4268c91bd0c1cd88f1f9dfa08e814b1dbe89b5f594a9f08ba0244d206",
-    "https://bcr.bazel.build/modules/pico-sdk/2.0.0/MODULE.bazel": "f96b730c6e871c1ca0a879b961a1a2430a4afbcb08a8dae8c8fa3ed2c86d9655",
-    "https://bcr.bazel.build/modules/pico-sdk/2.0.0/source.json": "75dce384ee879127ca9d0f88d2154af4b7e59c7e72f3e2e6995e82c75fcd5961",
     "https://bcr.bazel.build/modules/picotool/2.0.0/MODULE.bazel": "52915a6a48c0a98ce5fabf64264e574ffc6e4f0086524133c7c79d0ced90e8be",
     "https://bcr.bazel.build/modules/picotool/2.0.0/source.json": "b4f60d49eb929d9c7d4b9daa54d0a5cf221450b4b34105cecdd62c3b9311ff84",
     "https://bcr.bazel.build/modules/platforms/0.0.4/MODULE.bazel": "9b328e31ee156f53f3c416a64f8491f7eb731742655a47c9eec4703a71644aee",

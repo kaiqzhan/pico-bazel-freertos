@@ -3,6 +3,12 @@ bazel_dep(
   version = "2.0.0",
 )
 
+git_override(
+    module_name = "pico-sdk",
+    commit = "e0ec96993e4faa96d8eb4486fc6b701dab31faed",
+    remote = "https://github.com/kaiqzhan/pico-sdk.git",
+)
+
 # Note: rules_cc is special-cased repository; a dependency on rules_cc in a
 # module will not ensure that the root Bazel module has that same version of
 # rules_cc. For that reason, this primarily acts as a FYI. You'll still need
@@ -22,6 +28,8 @@ archive_override(
 register_toolchains(
     "@pico-sdk//bazel/toolchain:linux-x86_64-rp2040",
     "@pico-sdk//bazel/toolchain:linux-x86_64-rp2350",
+    "@pico-sdk//bazel/toolchain:linux-aarch64-rp2040",
+    "@pico-sdk//bazel/toolchain:linux-aarch64-rp2350",
     "@pico-sdk//bazel/toolchain:win-x86_64-rp2040",
     "@pico-sdk//bazel/toolchain:win-x86_64-rp2350",
     "@pico-sdk//bazel/toolchain:mac-x86_64-rp2040",
