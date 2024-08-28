@@ -1,0 +1,6 @@
+cc_library(
+    name = "freertos_config",
+    hdrs = ["FreeRTOSConfig.h"],
+    includes = ["."],
+    visibility = ["//visibility:public"],
+)

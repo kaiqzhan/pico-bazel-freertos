@@ -1,7 +1,8 @@
 cc_binary(
-    name = "blink",
-    srcs = ["blink.c"],
+    name = "freertos_blink",
+    srcs = ["main.c"],
     deps = [
+        "//third_party:freertos_kernel",
         "@pico-sdk//src/rp2_common/pico_stdlib",
     ],
 )

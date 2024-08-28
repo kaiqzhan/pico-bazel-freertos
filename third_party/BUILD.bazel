@@ -1,0 +1,64 @@
+cc_library(
+    name = "freertos_kernel_headers",
+    hdrs = [
+        "FreeRTOS-Kernel/include/atomic.h",
+        "FreeRTOS-Kernel/include/croutine.h",
+        "FreeRTOS-Kernel/include/deprecated_definitions.h",
+        "FreeRTOS-Kernel/include/event_groups.h",
+        "FreeRTOS-Kernel/include/FreeRTOS.h",
+        "FreeRTOS-Kernel/include/list.h",
+        "FreeRTOS-Kernel/include/message_buffer.h",
+        "FreeRTOS-Kernel/include/mpu_prototypes.h",
+        "FreeRTOS-Kernel/include/mpu_wrappers.h",
+        "FreeRTOS-Kernel/include/portable.h",
+        "FreeRTOS-Kernel/include/projdefs.h",
+        "FreeRTOS-Kernel/include/queue.h",
+        "FreeRTOS-Kernel/include/semphr.h",
+        "FreeRTOS-Kernel/include/stack_macros.h",
+        "FreeRTOS-Kernel/include/StackMacros.h",
+        "FreeRTOS-Kernel/include/stream_buffer.h",
+        "FreeRTOS-Kernel/include/task.h",
+        "FreeRTOS-Kernel/include/timers.h",
+    ],
+    includes = ["FreeRTOS-Kernel/include"],
+)
+
+cc_library(
+    name = "rp2040_portable_headers",
+    hdrs = [
+        "FreeRTOS-Kernel/portable/ThirdParty/GCC/RP2040/include/freertos_sdk_config.h",
+        "FreeRTOS-Kernel/portable/ThirdParty/GCC/RP2040/include/portmacro.h",
+        "FreeRTOS-Kernel/portable/ThirdParty/GCC/RP2040/include/rp2040_config.h",
+    ],
+    includes = ["FreeRTOS-Kernel/portable/ThirdParty/GCC/RP2040/include"],
+)
+
+cc_library(
+    name = "freertos_kernel",
+    srcs = [
+        "FreeRTOS-Kernel/croutine.c",
+        "FreeRTOS-Kernel/event_groups.c",
+        "FreeRTOS-Kernel/list.c",
+        "FreeRTOS-Kernel/queue.c",
+        "FreeRTOS-Kernel/stream_buffer.c",
+        "FreeRTOS-Kernel/tasks.c",
+        "FreeRTOS-Kernel/timers.c",
+        "FreeRTOS-Kernel/portable/MemMang/heap_4.c",
+        "FreeRTOS-Kernel/portable/ThirdParty/GCC/RP2040/port.c",
+    ],
+    defines = [
+        "LIB_FREERTOS_KERNEL=1",
+        "FREE_RTOS_KERNEL_SMP=1",
+        "PICO_CONFIG_RTOS_ADAPTER_HEADER=freertos_sdk_config.h",
+    ],
+    deps = [
+        ":freertos_kernel_headers",
+        ":rp2040_portable_headers",
+        "//FreeRTOS-Config:freertos_config",
+        "@pico-sdk//src/rp2_common:pico_platform",
+        "@pico-sdk//src/rp2_common/hardware_clocks",
+        "@pico-sdk//src/rp2_common/hardware_exception",
+        "@pico-sdk//src/rp2_common/pico_multicore",
+    ],
+    visibility = ["//visibility:public"],
+)
