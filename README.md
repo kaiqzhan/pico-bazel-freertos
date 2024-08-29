@@ -7,6 +7,10 @@ A simple blink example to use FreeRTOS in Raspberry Pi Pico. FreeRTOS-Kernel is 
 `openocd -f interface/cmsis-dap.cfg -f target/rp2040.cfg -c "adapter speed 5000" -c "program bazel-bin/freertos_blink verify reset
  exit"`
 
+## Generate clangd compile_commands.json
+`bazel run //:refresh_compile_commands`
+
 ## References
 * https://github.com/FreeRTOS/FreeRTOS-Kernel/blob/main/portable/ThirdParty/GCC/RP2040/README.md
 * https://github.com/FreeRTOS/FreeRTOS-SMP-Demos/tree/main/FreeRTOS/Demo/CORTEX_M0%2B_RP2040
+* https://github.com/hedronvision/bazel-compile-commands-extractor
